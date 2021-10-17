@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Vita Plant</title>
+    <script>
+        setTimeout(function () {
+            location.reload();
+        }, 10000);
+    </script>
+</head>
 <body>
 
 <h2>Vita plant Demonstração</h2>
@@ -8,22 +16,22 @@
     <p>{{ message }}</p>
 {% endif %}
 {% if led %}
-    <p>Configuração Led tual (RGB): {{ led[0] }}, {{ led[1] }}, {{ led[2] }}.</p>
+    <p>Configuração Led atual (RGB): {{ led[0] }}, {{ led[1] }}, {{ led[2] }}.</p>
 {% endif %}
 {% if humidity %}
-    <p>Humidade: {{ humidity }}</p>
+    <p>Umidade: {{ humidity }}</p>
 {% endif %}
 
 <form method="post" action="/get_form">
 	
     <label for="ledr">Led vermelho:</label><br>
-        <input type="number" id="ledr" name="ledr" value="10"><br>
+        <input type="number" id="ledr" name="ledr" value="{{led[0]}}"><br>
     <label for="ledg">Led verde:</label><br>
-        <input type="number" id="ledg" name="ledg" value="10"><br>
+        <input type="number" id="ledg" name="ledg" value="{{led[1]}}"><br>
     <label for="ledr">Led azul:</label><br>
-        <input type="number" id="ledb" name="ledb" value="0"><br>
-    <label for="pump">Ligar bomba (milisec):</label><br>
-        <input type="number" id="pump" name="pump" value="0"><br>
+        <input type="number" id="ledb" name="ledb" value="{{led[2]}}"><br>
+    <label for="pump">Ligar bomba (milisegundos):</label><br>
+        <input type="number" id="pump" name="pump" value="{{pumps}}"><br>
   <br>
   <input type="submit" value="Enviar ordem">
 </form>
